@@ -21,21 +21,20 @@ int main(){
 
 
     cout<<"avg "<<r<<endl;
-    int f=1;
+    double f=r;
     int first;
+	int second;
     for (int i = 0;i < sz;i++) {
 		for (int j = 0;j < sz;j++)
-			if (m[i][j]>r  && f==1){
-                first=m[i][j];
-                f=0;
+			if (abs(m[i][j]-r )< f && m[i][j]!=r){
+                f=abs(m[i][j]-r);
+                first=i;
+				second=j;
             }
-            else {
-                if (m[i][j]<first && first>r)
-                    first=m[i][j];
-            }
-		cout << endl;
+            
+		
 	}
-    cout<<"elem "<<first<<endl;
+    cout<<"elem "<<m[first][second]<<" i="<<first<<" "<<second<<endl;
     for (int i = 0;i < sz;i++) {
 		for (int j = 0;j < sz;j++)
 			cout<<setw(5)<<m[i][j];
